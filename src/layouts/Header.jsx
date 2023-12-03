@@ -46,7 +46,7 @@ export default function Header({ lang }) {
               </Link>
             </li>
             <li>
-              <ButtonTheme />
+              <ButtonTheme lang={lang} />
             </li>
             <li>
               <ButtonLanguage lang={lang} />
