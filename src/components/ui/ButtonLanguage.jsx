@@ -15,6 +15,7 @@ export default async function ButtonLanguage() {
         text = l;
       }
     });
+
     route.push(`/${text}`);
   };
   return (

@@ -13,10 +13,11 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default function RootLayout({ children, params }) {
+export default function RootLayout({ children, params: { lang } }) {
   return (
-    <html lang="vi" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <head>
+        {/* <meta name="description" content={lang.description} /> */}
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
@@ -31,7 +32,7 @@ export default function RootLayout({ children, params }) {
           disableTransitionOnChange
           themes={["light", "dark"]}
         >
-          <Header lang={params.lang} />
+          <Header lang={lang} />
           {children}
         </ThemeProvider>
       </body>
