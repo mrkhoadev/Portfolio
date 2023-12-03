@@ -138,7 +138,7 @@ export default function HomeRoute({ params: lang }) {
                     {data.personalProject.title}
                   </h2>
                 </div>
-                {data.personalProject.content.map(
+                {data.personalProject?.content.map(
                   ({ id, title, describe, content, demo, code }, index) => (
                     <div className={`border-b-2 p-3`} key={id}>
                       <h3 className=" text-xl">{title}</h3>
@@ -158,7 +158,7 @@ export default function HomeRoute({ params: lang }) {
                 )}
                 <div className={`p-3`}>
                   <Link
-                    href={data.contact.content.github}
+                    href={data.contact?.content.github}
                     className=" text-100"
                     target="_blank"
                   >
@@ -170,11 +170,11 @@ export default function HomeRoute({ params: lang }) {
             <section className="mt-5">
               <div>
                 <h2 className="mt-2 text-xl font-medium text-center">
-                  {data.myHobbies.title}
+                  {data.myHobbies?.title}
                 </h2>
               </div>
               <ul className="mt-4 list-disc px-5 flex-col gap-y-3">
-                {data.myHobbies.content.map((item, index) => (
+                {data.myHobbies?.content.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
                 <li>

@@ -7,6 +7,7 @@ export default function middleware(request) {
     return;
   }
   if (pathname?.startsWith("/vi")) {
+    // console.log(1);
     return NextResponse.redirect(
       new URL(`/vi${pathname}${search}`, request.url)
     );
