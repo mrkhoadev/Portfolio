@@ -5,17 +5,20 @@ export default function ButtonTheme() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const buttonRef = useRef(null);
   const handleClick = () => {
-    // setTheme(() => {
-    //   const newTheme = resolvedTheme === "light" ? "dark" : "light";
-    //   localStorage.setItem("theme", newTheme);
-    //   return newTheme;
-    // });
+    setTheme(() => {
+      const newTheme = resolvedTheme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      return newTheme;
+    });
   };
   useLayoutEffect(() => {
-    const themeLocalStorage =
-      typeof window !== "undefined" && localStorage.getItem("theme");
-    if (themeLocalStorage && theme !== "system") {
+    const themeLocalStorage = localStorage.getItem("theme");
+    if (theme !== "system") {
       setTheme(themeLocalStorage);
+    } else if (themeLocalStorage === "system" && resolvedTheme) {
+      setTheme(resolvedTheme);
+    } else {
+      localStorage.setItem("theme", resolvedTheme);
     }
   }, []);
   useLayoutEffect(() => {
