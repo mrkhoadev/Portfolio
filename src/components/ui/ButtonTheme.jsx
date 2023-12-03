@@ -1,25 +1,15 @@
 "use client";
 import { useTheme } from "next-themes";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 export default function ButtonTheme() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const buttonRef = useRef(null);
+
   const handleClick = () => {
-    setTheme(() => {
-      const newTheme = resolvedTheme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      return newTheme;
-    });
+    setTheme(resolvedTheme === "light" ? "dark" : "light");
   };
-  useLayoutEffect(() => {
-    const themeLocalStorage = localStorage.getItem("theme");
-    if (theme !== "system") {
-      setTheme(themeLocalStorage);
-    } else if (themeLocalStorage === "system" && resolvedTheme) {
-      setTheme(resolvedTheme);
-    }
-  }, []);
-  useLayoutEffect(() => {
+
+  useEffect(() => {
     if (buttonRef.current) {
       if (resolvedTheme === "light") {
         buttonRef.current.innerHTML = '<i class="bx bxs-moon"></i>';
