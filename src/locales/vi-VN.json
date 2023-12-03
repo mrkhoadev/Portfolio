@@ -1,0 +1,76 @@
+{
+  "name": "Đỗ Văn Khoa",
+  "mySkills": {
+    "title": "Các kỹ năng của tôi",
+    "workSkill": {
+      "title": "Các kỹ năng của tôi",
+      "content": "React.js, Next.js, Redux, Context, HTML5, CSS3, UI/UX,..."
+    },
+    "otherSkill": {
+      "title": "Các kỹ năng khác",
+      "content": "Kỹ năng nghiên cứu và tìm kiếm tương đối ổn. Tư duy làm việc tuy hơi chậm nhưng bù lại được cái chăm chỉ. :D"
+    }
+  },
+  "Histories": {
+    "title": "Lịch sử",
+    "content": [
+      { "id": 1, "2016": "Thất nghiệp" },
+      { "id": 2, "2017-2019": "Thất nghiệp Thất nghiệp" },
+      {
+        "id": 3,
+        "2019-2021": "Thất nghiệp Thất nghiệp Thất nghiệp Thất nghiệp"
+      },
+      {
+        "id": 4,
+        "2022-2023": "Thất nghiệp Thất nghiệp Thất nghiệp Thất nghiệp Thất nghiệp"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Thông tin liên hệ",
+    "content": {
+      "phone": "0853888885",
+      "zalo": "https://zalo.me",
+      "email": "mr.dovankhoa@gmail.com",
+      "facebook": "https://www.facebook.com/AnhKhoafake",
+      "github": "https://github.com/mrkhoadev"
+    }
+  },
+  "personalProject": {
+    "title": "Các dự án cá nhân",
+    "content": [
+      {
+        "id": 1,
+        "title": "GreenChop",
+        "describe": "Một dự án nhỏ được tạo bởi HTML, CSS, SCSS.",
+        "content": "Một trang web bán hàng (chưa hoàn thiện) đơn giản được xây dựng nhằm vào mục đích rèn luyện kỹ năng sử dụng HTML, CSS, SCSS.",
+        "demo": "https://mrkhoadev.github.io/Project-GreenChop/",
+        "code": "https://github.com/mrkhoadev/F8-Fullstack-K3/tree/main/Projects(scss)"
+      },
+      {
+        "id": 2,
+        "title": "Todo App",
+        "describe": "Một dự án nhỏ được tạo bởi React.js",
+        "content": "Một trang web dùng để quản lý công việc của người dùng. Chức năng chủ yếu: thêm, sửa, xóa và tìm kiếm.",
+        "demo": "https://mrkhoadev.github.io/F8-Fullstack-K3/Day41/build/",
+        "code": "https://github.com/mrkhoadev/F8-Fullstack-K3/tree/main/Day41"
+      },
+      {
+        "id": 3,
+        "title": "Shop",
+        "describe": "Một dự án nhỏ được tạo bởi React.js",
+        "content": "Một trang web bán hàng có sử dụng API. Chức năng chủ yếu: thêm, sửa, xóa, phân trang, router dom.",
+        "demo": "https://day46.vercel.app/product/1",
+        "code": "https://github.com/mrkhoadev/Day46"
+      }
+    ],
+    "myHobbies": {
+      "title": "Sở thích cá nhân",
+      "content": [
+        "Thưởng thức ca nhạc, đọc truyện, chơi game.",
+        "Thích tạo những thứ có liên quan đến thẩm mĩ và tự động hóa.",
+        "Theo Dõi Các Xu Hướng Công Nghệ, Tin Tức Về Các Sản Phẩm Nổi Tiếng Như Iphone, Samsung, Google,…"
+      ]
+    }
+  }
+}

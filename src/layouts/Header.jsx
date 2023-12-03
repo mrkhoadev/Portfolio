@@ -4,7 +4,7 @@ import Link from "next/link";
 import ButtonLanguage from "@/components/ui/ButtonLanguage";
 import ButtonTheme from "@/components/ui/ButtonTheme";
 
-export default function Header() {
+export default function Header({ lang }) {
   const headerRef = useRef(null);
   const headerInnerRef = useRef(null);
   useLayoutEffect(() => {
@@ -49,7 +49,7 @@ export default function Header() {
               <ButtonTheme />
             </li>
             <li>
-              <ButtonLanguage />
+              <ButtonLanguage lang={lang} />
             </li>
           </ul>
         </nav>
