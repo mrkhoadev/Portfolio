@@ -17,8 +17,6 @@ export default function ButtonTheme() {
       setTheme(themeLocalStorage);
     } else if (themeLocalStorage === "system" && resolvedTheme) {
       setTheme(resolvedTheme);
-    } else {
-      localStorage.setItem("theme", resolvedTheme);
     }
   }, []);
   useLayoutEffect(() => {
