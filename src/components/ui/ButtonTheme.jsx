@@ -5,11 +5,11 @@ export default function ButtonTheme() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const buttonRef = useRef(null);
   const handleClick = () => {
-    setTheme(() => {
-      const newTheme = resolvedTheme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      return newTheme;
-    });
+    // setTheme(() => {
+    //   const newTheme = resolvedTheme === "light" ? "dark" : "light";
+    //   localStorage.setItem("theme", newTheme);
+    //   return newTheme;
+    // });
   };
   useLayoutEffect(() => {
     const themeLocalStorage =
