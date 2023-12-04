@@ -15,7 +15,7 @@ export default function Header({ lang }) {
   return (
     <header ref={headerRef} className=" relative z-1">
       <div
-        className="fixed inset-x-0 top-0 bg-light-400 dark:bg-dark-400 shadow-md z-10"
+        className="fixed inset-x-0 top-0 shadow-md z-10 bg-light-400 transition-colors dark:bg-dark-400"
         ref={headerInnerRef}
       >
         <nav className="max-w-7xl xl:mx-auto container flex justify-between items-center py-4 px-2 z-2">

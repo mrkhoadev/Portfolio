@@ -1,10 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .test {
-  color: rgb(9, 181, 244);
-}
-.capitalize a {
   color: rgb(9, 181, 244);
 }
 

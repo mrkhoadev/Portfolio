@@ -2,16 +2,12 @@ import avatar from "../../assets/image/avt/avt.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { getDictionary } from "@/Utils/dictionary";
-import { cookies } from "next/headers";
 
 export default async function HomeRoute({ params: { lang } }) {
   const data = await getDictionary(lang);
-  // async function create(data) {
-  //   cookies().set("locales", lang);
-  // }
   return (
     <main className="pb-10 pt-2">
-      <div className="max-w-7xl xl:mx-auto container rounded-xl border-2 border-gray-200 mt-1.5 shadow-md bg-light-200 dark:bg-dark-200 dark:border-transparent">
+      <div className="max-w-7xl xl:mx-auto container rounded-xl border-2 border-gray-200 mt-1.5 shadow-md bg-light-200 transition-colors dark:bg-dark-200 dark:border-transparent">
         <div className="w-full">
           <h1 className="text-2xl text-center font-medium pt-3">{data.name}</h1>
         </div>

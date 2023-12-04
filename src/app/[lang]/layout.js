@@ -15,9 +15,9 @@ export async function generateStaticParams() {
 
 export default function RootLayout({ children, params: { lang } }) {
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning className="transition-colors">
       <head>
-        {/* <meta name="description" content={lang.description} /> */}
+        <meta name="description" content={lang.description} />
         <link
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
@@ -29,7 +29,7 @@ export default function RootLayout({ children, params: { lang } }) {
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
+          // disableTransitionOnChange
           themes={["light", "dark"]}
         >
           <Header lang={lang} />
