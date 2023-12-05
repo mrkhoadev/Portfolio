@@ -63,14 +63,14 @@
         "demo": "https://day46.vercel.app/product/1",
         "code": "https://github.com/mrkhoadev/Day46"
       }
-    ],
-    "myHobbies": {
-      "title": "Sở thích cá nhân",
-      "content": [
-        "Thưởng thức ca nhạc, đọc truyện, chơi game.",
-        "Thích tạo những thứ có liên quan đến thẩm mĩ và tự động hóa.",
-        "Theo Dõi Các Xu Hướng Công Nghệ, Tin Tức Về Các Sản Phẩm Nổi Tiếng Như Iphone, Samsung, Google,…"
-      ]
-    }
+    ]
+  },
+  "myHobbies": {
+    "title": "Sở thích cá nhân",
+    "content": [
+      "Thưởng thức ca nhạc, đọc truyện, chơi game.",
+      "Thích tạo những thứ có liên quan đến thẩm mĩ và tự động hóa.",
+      "Theo Dõi Các Xu Hướng Công Nghệ, Tin Tức Về Các Sản Phẩm Nổi Tiếng Như Iphone, Samsung, Google,…"
+    ]
   }
 }

@@ -177,10 +177,6 @@ export default async function HomeRoute({ params: { lang } }) {
                 {data.myHobbies?.content.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
-                <li>
-                  Thưởng Thức Nhạc Nhẹ, Nhạc Rap Của Đen Vâu Và Các Nghệ Sĩ
-                  Khác,…
-                </li>
               </ul>
             </section>
           </div>
