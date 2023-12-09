@@ -19,10 +19,16 @@ export default async function HomeRoute({ params: { lang } }) {
                   src={avatar}
                   alt="avatar"
                   className=" w-full z-0 rounded-full ease-in-out duration-400 hover:scale-[1.3]"
+                  width={0}
+                  priority
+                  height={0}
                 />
               </div>
               <Image
                 src={avatar}
+                width={0}
+                height={0}
+                priority
                 alt="avatar"
                 className=" w-full relative z-[-1] blur-lg dark:brightness-[0.7] rounded-full"
               />

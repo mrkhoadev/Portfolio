@@ -2,7 +2,7 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-export default async function ButtonLanguage({ lang }) {
+export default function ButtonLanguage({ lang }) {
   const pathName = usePathname();
   const route = useRouter();
   const nextLang = lang === "vi" ? "en" : "vi";

@@ -69,5 +69,15 @@
       "Like creating things related to aesthetics and automation.",
       "Following technology trends, news about popular products like iPhone, Samsung, Google,…"
     ]
-  }
+  },
+  "warning": {
+    "wrong": "Incorrect username or password!",
+    "shortcoming": "Please enter all required information!"
+  },
+  "button": {
+    "logSocial": "Log in with Social Media",
+    "loginBtn": "Sign in/Sign up",
+    "logOut": "Log out"
+  },
+  "loading": "Loading..."
 }

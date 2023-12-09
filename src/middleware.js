@@ -1,25 +1,31 @@
-import React from "react";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { i18n } from "../i18n.config";
+import { match as matchLocale } from "@formatjs/intl-localematcher";
+
+function getLocale() {
+  const lang = cookies().get("lang");
+  const locales = i18n.locales;
+
+  const locale = matchLocale(lang.value, locales, i18n.defaultLocale);
+
+  return locale;
+}
 
 export default function middleware(request) {
-  const { pathname, search } = request.nextUrl;
-  const lang = cookies().get("lang");
-  const regex = /^\/(en|vi)(\/[^\/]*)?$/;
-  const match = regex.test(pathname);
-  if (
-    (pathname && pathname?.startsWith("/en")) ||
-    pathname?.startsWith("/vi")
-  ) {
-    if (match) return;
-  }
-  if (lang?.value === "en") {
+  const { pathname } = request.nextUrl;
+
+  const pathnameIsMissingLocale = i18n.locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  );
+
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request);
     return NextResponse.redirect(
-      new URL(`/en${pathname}${search}`, request.url)
-    );
-  } else {
-    return NextResponse.redirect(
-      new URL(`/vi${pathname}${search}`, request.url)
+      new URL(
+        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
+        request.url
+      )
     );
   }
 }

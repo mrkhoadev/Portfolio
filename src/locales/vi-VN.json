@@ -72,5 +72,15 @@
       "Thích tạo những thứ có liên quan đến thẩm mĩ và tự động hóa.",
       "Theo Dõi Các Xu Hướng Công Nghệ, Tin Tức Về Các Sản Phẩm Nổi Tiếng Như Iphone, Samsung, Google,…"
     ]
-  }
+  },
+  "warning": {
+    "wrong": "Tài khoản hoặc mật khẩu không chính xác!",
+    "shortcoming": "Vui lòng nhập đây đủ thông tin!"
+  },
+  "button": {
+    "logSocial": "Đăng nhập mạng xã hội",
+    "loginBtn": "Đăng nhập/Đăng ký",
+    "logOut": "Đăng xuất"
+  },
+  "loading": "Đang tải..."
 }

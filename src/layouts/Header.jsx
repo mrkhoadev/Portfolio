@@ -21,28 +21,33 @@ export default function Header({ lang }) {
         <nav className="max-w-7xl xl:mx-auto container flex justify-between items-center py-4 px-2 z-2">
           <ul className="flex gap-6 items-center font-bold">
             <li>
-              <Link href={"/"}>
+              <Link href={`/${lang}`}>
                 <p className="inline-block text-2xl text-100">Anh Khoa</p>
               </Link>
             </li>
             <li>
-              <Link href={"/"}>Home</Link>
+              <Link href={`/${lang}`}>Home</Link>
             </li>
           </ul>
           <ul className="flex gap-4 items-center">
             <li>
-              <Link href={"/"} className="text-2xl">
+              <Link href={`/${lang}`} className="text-2xl">
                 <i className="bx bxl-react"></i>
               </Link>
             </li>
             <li>
-              <Link href={"/"} className="text-2xl">
+              <Link href={`/${lang}`} className="text-2xl">
                 <i className="bx bxl-facebook-circle"></i>
               </Link>
             </li>
             <li>
-              <Link href={"/"} className="text-2xl">
+              <Link href={`/${lang}`} className="text-2xl">
                 <i className="bx bxl-github"></i>
+              </Link>
+            </li>
+            <li>
+              <Link href={`/${lang}/auth`} className="text-2xl">
+                <i className="bx bxs-user"></i>
               </Link>
             </li>
             <li>
