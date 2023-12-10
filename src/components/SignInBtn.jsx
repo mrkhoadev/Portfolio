@@ -3,6 +3,7 @@ import { signIn } from "next-auth/react";
 import React from "react";
 
 export function SignInGoogleBtn() {
+  console.log(process.env.NEXTAUTH_URL);
   return (
     <button
       onClick={() => signIn("google")}
