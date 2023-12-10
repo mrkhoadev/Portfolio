@@ -1,6 +1,6 @@
 import React from "react";
 // import AuthForm from "./components/AuthForm";
-import { getDictionary } from "@/Utils/dictionary";
+// import { getDictionary } from "@/Utils/dictionary";
 import { SignInGithubBtn, SignInGoogleBtn } from "@/components/SignInBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./[...nextauth]/route";
@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default async function Auth({ params: { lang } }) {
-  const dataLang = await getDictionary(lang);
+  // const dataLang = await getDictionary(lang);
   const session = await getServerSession(authOptions);
   return (
     <>
