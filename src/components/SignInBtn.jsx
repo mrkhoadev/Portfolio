@@ -2,8 +2,7 @@
 import { signIn } from "next-auth/react";
 import React from "react";
 
-export function SignInGoogleBtn({ session }) {
-  console.log(session);
+export function SignInGoogleBtn() {
   return (
     <button
       onClick={() => signIn("google")}
