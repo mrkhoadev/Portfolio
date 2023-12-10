@@ -14,12 +14,6 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
-      return true;
-    },
-    async redirect({ url, baseUrl }) {
-      return baseUrl;
-    },
     async jwt(data) {
       if (data.account) {
         data.token.provider = data.account.provider;
