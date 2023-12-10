@@ -3,7 +3,7 @@ import { auth } from "@/redux/services/auth";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 const AuthForm = ({ lang, dataLang }) => {
   const warningRef = useRef(null);
@@ -15,7 +15,6 @@ const AuthForm = ({ lang, dataLang }) => {
 
   const router = useRouter();
   const { data: session } = useSession();
-
   const {
     isError: errorLogin,
     isLoading: loadingLogin,

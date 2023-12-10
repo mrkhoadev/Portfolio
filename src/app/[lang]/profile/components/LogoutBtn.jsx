@@ -1,7 +1,6 @@
 "use client";
-import { setStatusLogin } from "@/redux/slice/authSlice";
 import { deleteCookie } from "cookies-next";
-import React, { useEffect } from "react";
+import React from "react";
 import { signOut } from "next-auth/react";
 
 export default function LogoutBtn({ dataLang }) {
