@@ -33,25 +33,27 @@ export default async function middleware(request) {
     cookieName: process.env.NEXT_PUBLIC_SESSION,
     secret: process.env.NEXTAUTH_SECRET,
   });
+  // console.log(process.env.NEXTAUTH_URL);
+
   if (pathname.startsWith(`/${lang}/auth`)) {
     if (jwt) {
       return NextResponse.redirect(new URL(`/profile`, request.url));
     } else {
-      const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
-      const response = NextResponse.next();
-      response.cookies.set("lang", lang || i18n.defaultLocale);
-      return response;
+      // const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
+      // const response = NextResponse.next();
+      // response.cookies.set("lang", lang || i18n.defaultLocale);
+      // return response;
     }
   }
-  if (pathname.startsWith(`/${lang}/profile`)) {
-    if (!jwt) {
-      const response = NextResponse.redirect(
-        new URL(`/${lang}/auth`, request.url)
-      );
-      response.cookies.set("lang", lang || i18n.defaultLocale);
-      return response;
-    }
-  }
+  // if (pathname.startsWith(`/${lang}/profile`)) {
+  //   if (!jwt) {
+  //     const response = NextResponse.redirect(
+  //       new URL(`/${lang}/auth`, request.url)
+  //     );
+  //     response.cookies.set("lang", lang || i18n.defaultLocale);
+  //     return response;
+  //   }
+  // }
 }
 export const config = {
   matcher: "/((?!api|_next/static|_next/image|favicon.ico).*)",
