@@ -37,11 +37,6 @@ export default async function middleware(request) {
     cookieName: process.env.NEXT_PUBLIC_SESSION,
     secret: process.env.NEXTAUTH_SECRET,
   });
-  // if (!jwt) {
-  //   return NextResponse.redirect(new URL(`/${lang}/auth`, request.url));
-  // } else {
-  //   return NextResponse.redirect(new URL(`/${lang}/profile`, request.url));
-  // }
   if (pathname.startsWith(`/${lang}/auth`)) {
     if (jwt) {
       return NextResponse.redirect(new URL(`/profile`, request.url));

@@ -15,10 +15,10 @@ export default async function Auth({ params: { lang } }) {
       <main>
         <div className="mx-auto flex justify-center items-center min-h-[650px] flex-col gap-4">
           {/* <AuthForm lang={lang} dataLang={dataLang} /> */}
-          <div>
+          <div className="min-h-[50px]">
             <SignInGoogleBtn />
           </div>
-          <div>
+          <div className="min-h-[50px]">
             <SignInGithubBtn />
           </div>
         </div>

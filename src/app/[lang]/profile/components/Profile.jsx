@@ -11,20 +11,20 @@ export default function Profile({ dataLang, session }) {
       <h2>{session.email}</h2>
       <>
         {session?.provider === "github" ? (
-          <div>
+          <div className="min-h-[50px]">
             <SignInGoogleBtn />
           </div>
         ) : session?.provider === undefined ? (
           <>
-            <div>
+            <div className="min-h-[50px]">
               <SignInGoogleBtn />
             </div>
-            <div>
+            <div className="min-h-[50px]">
               <SignInGithubBtn />
             </div>
           </>
         ) : (
-          <div>
+          <div className="min-h-[50px]">
             <SignInGithubBtn />
           </div>
         )}
