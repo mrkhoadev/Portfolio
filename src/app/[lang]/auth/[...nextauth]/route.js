@@ -21,7 +21,7 @@ export const authOptions = {
       return data.token;
     },
     async session(data) {
-      return data.token;
+      return { ...data.token, test: 1 };
     },
   },
   jwt: {
