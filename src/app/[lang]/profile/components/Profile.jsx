@@ -13,7 +13,7 @@ export default function Profile({ dataLang }) {
     if (status !== "authenticated" && !getCookie("userData")) {
       router.push("/auth", { scroll: false });
     } else {
-      if (session) setCookie("userData", session);
+      if (session) setCookie("userData", JSON.stringify(session));
       setIsRender(true);
     }
   }, []);
