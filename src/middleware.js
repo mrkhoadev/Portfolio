@@ -34,25 +34,25 @@ export default async function middleware(request) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  if (pathname.startsWith(`/${lang}/auth`)) {
-    if (jwt) {
-      return NextResponse.redirect(new URL(`/${lang}/profile`, request.url));
-    } else {
-      const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
-      const response = NextResponse.next();
-      response.cookies.set("lang", lang || i18n.defaultLocale);
-      return response;
-    }
-  }
-  // if (pathname.startsWith(`/${lang}/profile`)) {
-  //   if (!jwt) {
-  //     const response = NextResponse.redirect(
-  //       new URL(`/${lang}/auth`, request.url)
-  //     );
+  // if (pathname.startsWith(`/${lang}/auth`)) {
+  //   if (jwt) {
+  //     return NextResponse.redirect(new URL(`/${lang}/profile`, request.url));
+  //   } else {
+  //     const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
+  //     const response = NextResponse.next();
   //     response.cookies.set("lang", lang || i18n.defaultLocale);
   //     return response;
   //   }
   // }
+  if (pathname.startsWith(`/${lang}/profile`)) {
+    if (!jwt) {
+      const response = NextResponse.redirect(
+        new URL(`/${lang}/auth`, request.url)
+      );
+      response.cookies.set("lang", lang || i18n.defaultLocale);
+      return response;
+    }
+  }
 }
 export const config = {
   matcher: "/((?!api|_next/static|_next/image|favicon.ico).*)",
