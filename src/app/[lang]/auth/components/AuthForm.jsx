@@ -15,7 +15,7 @@ const AuthForm = ({ lang, dataLang }) => {
 
   const router = useRouter();
   const { data: session } = useSession();
-
+  console.log(process.env.NEXTAUTH_URL);
   const {
     isError: errorLogin,
     isLoading: loadingLogin,
