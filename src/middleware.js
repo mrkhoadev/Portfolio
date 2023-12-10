@@ -30,20 +30,20 @@ export default async function middleware(request) {
   }
   const jwt = await getToken({
     req: request,
-    cookieName: process.env.NEXT_PUBLIC_SESSION,
+    // cookieName: process.env.NEXT_PUBLIC_SESSION,
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  // if (pathname.startsWith(`/${lang}/auth`)) {
-  //   if (jwt) {
-  //     return NextResponse.redirect(new URL(`/${lang}/profile`, request.url));
-  //   } else {
-  //     const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
-  //     const response = NextResponse.next();
-  //     response.cookies.set("lang", lang || i18n.defaultLocale);
-  //     return response;
-  //   }
-  // }
+  if (pathname.startsWith(`/${lang}/auth`)) {
+    if (jwt) {
+      return NextResponse.redirect(new URL(`/${lang}/profile`, request.url));
+    } else {
+      const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
+      const response = NextResponse.next();
+      response.cookies.set("lang", lang || i18n.defaultLocale);
+      return response;
+    }
+  }
   if (pathname.startsWith(`/${lang}/profile`)) {
     if (!jwt) {
       const response = NextResponse.redirect(
