@@ -7,7 +7,11 @@ function getLocale() {
   const lang = cookies().get("lang");
   const locales = i18n.locales;
 
-  const locale = matchLocale(lang.value, locales, i18n.defaultLocale);
+  const locale = matchLocale(
+    lang.value ? lang.value : i18n.defaultLocale,
+    locales,
+    i18n.defaultLocale
+  );
 
   return locale;
 }
