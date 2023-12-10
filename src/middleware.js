@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { i18n } from "../i18n.config";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
+import { getToken } from "next-auth/jwt";
 
-function getLocale() {
-  const lang = cookies().get("lang");
+function getLocale(lang) {
   const locales = i18n.locales;
 
   const locale = matchLocale(
-    lang.value ? lang.value : i18n.defaultLocale,
+    lang ? lang : i18n.defaultLocale,
     locales,
     i18n.defaultLocale
   );
@@ -16,7 +15,8 @@ function getLocale() {
   return locale;
 }
 
-export default function middleware(request) {
+export default async function middleware(request) {
+  const lang = request.cookies.get("lang")?.value;
   const { pathname } = request.nextUrl;
 
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -24,13 +24,42 @@ export default function middleware(request) {
   );
 
   if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
+    const locale = getLocale(lang);
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
         request.url
       )
     );
+  }
+  const jwt = await getToken({
+    req: request,
+    cookieName: process.env.NEXT_PUBLIC_SESSION,
+    secret: process.env.NEXTAUTH_SECRET,
+  });
+  // if (!jwt) {
+  //   return NextResponse.redirect(new URL(`/${lang}/auth`, request.url));
+  // } else {
+  //   return NextResponse.redirect(new URL(`/${lang}/profile`, request.url));
+  // }
+  if (pathname.startsWith(`/${lang}/auth`)) {
+    if (jwt) {
+      return NextResponse.redirect(new URL(`/profile`, request.url));
+    } else {
+      const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
+      const response = NextResponse.next();
+      response.cookies.set("lang", lang || siteConfig.lang);
+      return response;
+    }
+  }
+  if (pathname.startsWith(`/${lang}/profile`)) {
+    if (!jwt) {
+      const response = NextResponse.redirect(
+        new URL(`/${lang}/auth`, request.url)
+      );
+      response.cookies.set("lang", lang || siteConfig.lang);
+      return response;
+    }
   }
 }
 export const config = {

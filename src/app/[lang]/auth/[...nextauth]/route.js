@@ -24,6 +24,10 @@ export const authOptions = {
       return data.token;
     },
   },
+  jwt: {
+    secret: process.env.NEXTAUTH_SECRET,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export const handler = NextAuth(authOptions);

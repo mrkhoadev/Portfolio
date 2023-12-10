@@ -15,6 +15,7 @@ const AuthForm = ({ lang, dataLang }) => {
 
   const router = useRouter();
   const { data: session } = useSession();
+
   const {
     isError: errorLogin,
     isLoading: loadingLogin,
@@ -73,7 +74,6 @@ const AuthForm = ({ lang, dataLang }) => {
 
       const jsonString = JSON.stringify(userData);
       document.cookie = "userData=" + jsonString + ";" + expires + ";path=/";
-      router.push("/profile", { scroll: false });
     }
   }, [successLogin, successRegister]);
   useLayoutEffect(() => {
