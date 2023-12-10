@@ -43,7 +43,7 @@ export default async function middleware(request) {
     } else {
       const lang = pathname.startsWith("/vi/auth") ? "vi" : "en";
       const response = NextResponse.next();
-      response.cookies.set("lang", lang || siteConfig.lang);
+      response.cookies.set("lang", lang || i18n.defaultLocale);
       return response;
     }
   }
@@ -52,7 +52,7 @@ export default async function middleware(request) {
       const response = NextResponse.redirect(
         new URL(`/${lang}/auth`, request.url)
       );
-      response.cookies.set("lang", lang || siteConfig.lang);
+      response.cookies.set("lang", lang || i18n.defaultLocale);
       return response;
     }
   }
