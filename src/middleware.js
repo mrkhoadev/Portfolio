@@ -30,8 +30,8 @@ export default async function middleware(request) {
   }
   const jwt = await getToken({
     req: request,
-    // cookieName: process.env.NEXT_PUBLIC_SESSION,
     secret: process.env.NEXTAUTH_SECRET,
+    cookieName: process.env.NEXT_PUBLIC_SESSION,
   });
 
   if (pathname.startsWith(`/${lang}/auth`)) {
