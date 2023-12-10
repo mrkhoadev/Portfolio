@@ -6,17 +6,13 @@ import { getToken } from "next-auth/jwt";
 function getLocale(lang) {
   const locales = i18n.locales;
 
-  const locale = matchLocale(
-    lang ? lang : i18n.defaultLocale,
-    locales,
-    i18n.defaultLocale
-  );
+  const locale = matchLocale(lang, locales, i18n.defaultLocale);
 
   return locale;
 }
 
 export default async function middleware(request) {
-  const lang = request.cookies.get("lang")?.value;
+  const lang = request.cookies.get("lang")?.value || i18n.defaultLocale;
   const { pathname } = request.nextUrl;
 
   const pathnameIsMissingLocale = i18n.locales.every(
