@@ -6,11 +6,12 @@ import { useRouter } from "next/navigation";
 import { getCookie, setCookie } from "cookies-next";
 
 export default function Profile({ dataLang }) {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [isRender, setIsRender] = useState(false);
+
   useEffect(() => {
-    if (!session && !getCookie("userData")) {
+    if (status !== "authenticated" && !getCookie("userData")) {
       router.push("/auth", { scroll: false });
     } else {
       if (session) setCookie("userData", session.user);
